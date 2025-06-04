@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Votre panier</title>
+</head>
+
+<body class="page cart">
+    <header>
+        <div>
+            <a href="index.html">
+                <img src="img/logo-black.png" alt="Logo GeniArtHub version sombre">
+            </a>
+            <a href="cart.html"><img src="img/cart.svg" alt="Aller au panier"></a>
+        </div>
+    </header>
+    <main class="cart-main">
+        <div class="cart-main-titre">
+            <h1>Votre panier</h1>
+        </div>
+        <div class="produit-liste">
+            <div class="produit">
+                <img src="img/01.png" alt="Oiseau regard en l'air">
+                <div>
+                    <h3>Eclat Ethere : Bird</h3>
+                    <p>Format 40x30</p>
+                    <p>35.25€</p>
+                    <div>
+                        <label for="quantity">Quantité:</label>
+                        <input type="number" id="quantity" name="quantity" min="0" max="10" />
+                    </div>
+                    <button>Supprimer</button> <!-- maybe <a> ,easiest in js ? -->
+                </div>
+            </div>
+
+            <div class="produit">
+                <img src="img/01.png" alt="Oiseau regard en l'air">
+                <div>
+                    <h3>Eclat Ethere : Bird</h3>
+                    <p>Format 40x30</p>
+                    <p>35.25€</p>
+                    <div>
+                        <label for="quantity">Quantité:</label>
+                        <input type="number" id="quantity" name="quantity" min="0" max="10" />
+                    </div>
+                    <button>Supprimer</button> <!-- maybe <a> ,easiest in js ? -->
+                </div>
+            </div>
+
+            <div class="produit">
+                <img src="img/01.png" alt="Oiseau regard en l'air">
+                <div>
+                    <h3>Eclat Ethere : Bird</h3>
+                    <p>Format 40x30</p>
+                    <p>35.25€</p>
+                    <div>
+                        <label for="quantity">Quantité:</label>
+                        <input type="number" id="quantity" name="quantity" min="0" max="10" />
+                    </div>
+                    <button>Supprimer</button> <!-- maybe <a> ,easiest in js ? -->
+                </div>
+            </div>
+        </div>
+        <div class="cart-main-total">
+            <h3>Total de la commande</h3>
+            <p>X article pour un montant de X €</p>
+        </div>
+        
+        <form action="">
+            <div class="cart-main-form-wrapper">
+                <div class="cart-main-form-h2-wrapper">
+                    <h2>Formulaire de commande</h2>
+                </div>
+                
+                <div class="cart-form-input">
+                    <div class="cart-form-input-list">
+                        <label for="prenom">Prenom :</label>
+                        <input type="text" name="prenom" placeholder="prenom" required>
+                    </div>
+                    <div class="cart-form-input-list">
+                        <label for="prenom">Nom :</label>
+                        <input type="text" name="nom" placeholder="nom" required>
+                    </div>
+                    <div class="cart-form-input-list">
+                        <label for="adresse">Adresse :</label>
+                        <input type="text" name="adresse" placeholder="adresse" required>
+                    </div>
+                    <div class="cart-form-input-list">
+                        <label for="ville">Ville :</label>
+                        <input type="text" name="ville" placeholder="ville" required>
+                    </div>
+                    <div class="cart-form-input-list">
+                        <label for="email">Email :</label>
+                        <input type="email" name="Email" placeholder="email" required>
+                    </div>
+                    <div class="cart-form-input-list">
+                        <input type="submit" value="Passer commande" class="buy-button">
+                        <a href="#" class="buy-button">Passer commande</a>
+                    </div>
+                </div>
+                
+
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p><a href="https://www.errantecreation.com/">Errante Creation</a> © 2023 - GeniArtHub</p>
+    </footer>
+</body>
+</html>
