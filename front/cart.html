@@ -68,7 +68,21 @@
             <p>X article pour un montant de X €</p>
         </div>
         
-        <form action="">
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Félicitations !</h2>
+                </div>
+                <div class="modal-body">
+                    <p>La commande a été passée avec succès.</p>
+                    <p>Voici votre numéro de commande : XXXXXXXXXXXX</p>
+                </div>
+            </div>
+        </div>
+
+        <form action="" name="form" onsubmit="return validateForm()">
             <div class="cart-main-form-wrapper">
                 <div class="cart-main-form-h2-wrapper">
                     <h2>Formulaire de commande</h2>
@@ -76,37 +90,38 @@
                 
                 <div class="cart-form-input">
                     <div class="cart-form-input-list">
-                        <label for="prenom">Prenom :</label>
-                        <input type="text" name="prenom" placeholder="prenom" required>
+                        <label for="prenom">Prénom :</label>
+                        <input id="form_prenom_input" type="text" name="prenom" placeholder="prénom" required>
                     </div>
                     <div class="cart-form-input-list">
-                        <label for="prenom">Nom :</label>
-                        <input type="text" name="nom" placeholder="nom" required>
+                        <label for="nom">Nom :</label>
+                        <input id="form_nom_input" type="text" name="nom" placeholder="nom" required>
                     </div>
                     <div class="cart-form-input-list">
                         <label for="adresse">Adresse :</label>
-                        <input type="text" name="adresse" placeholder="adresse" required>
+                        <input id="form_adresse_input" type="text" name="adresse" placeholder="adresse" required>
                     </div>
                     <div class="cart-form-input-list">
                         <label for="ville">Ville :</label>
-                        <input type="text" name="ville" placeholder="ville" required>
+                        <input id="form_ville_input" type="text" name="ville" placeholder="ville" required>
                     </div>
                     <div class="cart-form-input-list">
                         <label for="email">Email :</label>
-                        <input type="email" name="Email" placeholder="email" required>
+                        <input id="form_email_input" type="email" name="Email" placeholder="email" required>
                     </div>
-                    <div class="cart-form-input-list">
-                        <input type="submit" value="Passer commande" class="buy-button">
-                        <a href="#" class="buy-button">Passer commande</a>
-                    </div>
+                    
                 </div>
-                
+                <input type="submit" value="Passer commande" class="cart-buy-button" id="btn">
 
             </div>
         </form>
+
+        
+
     </main>
     <footer>
         <p><a href="https://www.errantecreation.com/">Errante Creation</a> © 2023 - GeniArtHub</p>
     </footer>
+    <script src="js/cart.js"></script>
 </body>
 </html>

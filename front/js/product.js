@@ -31,13 +31,30 @@ async function displayProductDetail() {
     const price = document.querySelector(".showprice");
     const select = document.querySelector("#format");
     const aside = document.querySelector("aside h2");
+    const asidedescription = document.querySelector("aside p");
     const button = document.querySelector(".button-buy");
+    const pagename = document.querySelector("title")
+
+    // Fonction pour raccourcir la description 
+    function GFG(str, maxLength) {
+    if (str.length > maxLength) {
+        return str.substring(0, maxLength) + '...';
+    }
+    return str;
+    }
+    const longText = product.description;
+    const truncatedText = GFG(longText, 200);
+    console.log(truncatedText); // Affiche dans la console la description tronquée
+
 
     // Injection des données
-    img.src = product.image;
+    img.src = product.image;     
     img.alt = product.shorttitle;
     title.textContent = product.titre;
-    description.textContent = product.description;
+    description.textContent = truncatedText;
+    pagename.textContent = product.titre;
+
+
 
     // Prend le prix de la première déclinaison comme prix affiché
     if (product.declinaisons && product.declinaisons.length > 0) {
@@ -56,6 +73,7 @@ async function displayProductDetail() {
     });
 
     aside.textContent = `Description de l'oeuvre : ${product.titre}`;
+    asidedescription.textContent = product.description;
     button.textContent = `Buy ${product.shorttitle}`;
 }
 
