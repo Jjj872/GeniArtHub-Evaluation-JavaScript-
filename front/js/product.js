@@ -1,30 +1,35 @@
 // Fonction pour extraire l'id de l'URL
 function getProductIdFromURL() {
     const params = new URLSearchParams(window.location.search);
-    return params.get("id");
+    return params.get("id");   // return l'id trouver dans l'url 
 }
 
-// Fonction pour récupérer les infos du produit via son ID
+// Fonction pour récupérer les infos du produit via son ID 
 async function getProductById(id) {
     try {
-        const response = await fetch(`http://localhost:3000/api/products/${id}`);
+        const response = await fetch(`http://localhost:3000/api/products/${id}`); // l'id est trouvé par la fonction getProductIdFromUrl
         return await response.json();
     } catch (error) {
-        console.error("Erreur lors de la récupération du produit :", error);
+        console.error("Erreur lors de la récupération du produit :", error); 
     }
 }
 
-// Fonction principale qui injecte les infos dans la page product.html
+
+
+
+
+// Fonction PRINCIPAL qui injecte les infos dans la page product.html
 async function displayProductDetail() {
     const productId = getProductIdFromURL();
     if (!productId) return;
+    // console.log(productId); // Pour VERIF que l'id arrive bien
+
 
     const product = await getProductById(productId);
     if (!product) return;
+    // console.log(product); // pour VERIF que toutes les infos (id,img,descrip. . .) arrive bien
 
-    console.log(product); // Pour vérifier
-
-    // Sélections HTML
+    // Récupération HTML
     const img = document.querySelector("figure img");
     const title = document.querySelector("h1");
     const description = document.querySelector("section.detailoeuvre article p");
@@ -35,16 +40,19 @@ async function displayProductDetail() {
     const button = document.querySelector(".button-buy");
     const pagename = document.querySelector("title")
 
+    
     // Fonction pour raccourcir la description 
-    function GFG(str, maxLength) {
+    function TruncatedDescription(str, maxLength) {
     if (str.length > maxLength) {
         return str.substring(0, maxLength) + '...';
     }
-    return str;
+    return str; // si str <maxlength affiche tout le text (logique)
     }
+
     const longText = product.description;
-    const truncatedText = GFG(longText, 200);
-    console.log(truncatedText); // Affiche dans la console la description tronquée
+    const truncatedText = TruncatedDescription(longText, 200); // truncatedText est la variable longtext qui passe dans la fonction truncateddescription avec 200 en max length
+    // console.log(truncatedText); // Affiche dans la console la description tronquée
+
 
 
     // Injection des données
@@ -57,21 +65,41 @@ async function displayProductDetail() {
 
 
     // Prend le prix de la première déclinaison comme prix affiché
-    if (product.declinaisons && product.declinaisons.length > 0) {
-        price.textContent = `${product.declinaisons[0].prix}€`;
+    price.textContent = `${product.declinaisons[0].prix}€`;
+
+    // Affiche le prix par rapport au format selectionner
+    select.addEventListener("change", function () {
+    const selectedTaille = this.value;
+    const selectedDeclinaison = product.declinaisons.find(declinaison => declinaison.taille === selectedTaille); // à modif
+
+    if (selectedDeclinaison) {
+        price.textContent = `${selectedDeclinaison.prix}€`;
     } else {
         price.textContent = "Prix indisponible";
     }
+});
+
 
     // Ajoute les déclinaisons dans le <select>
-    select.innerHTML = ""; // Vide avant d'ajouter
-    product.declinaisons.forEach(decl => {
+    product.declinaisons.forEach(declinaison => {
         const option = document.createElement("option");
-        option.value = decl.taille;
-        option.textContent = `${decl.taille} - ${decl.prix}€`;
+        option.value = declinaison.taille;
+        option.textContent = `${declinaison.taille} - ${declinaison.prix}€`;
         select.appendChild(option);
     });
 
+    // Oblige l'input #quantity min 0 max 100
+    document.getElementById("quantity").addEventListener("change", function() {
+        let valeur = parseInt(this.value ,10); // analyse  la string fournie et renvoie un entier //Attention : La base par défaut n'est pas 10. Ce paramètre doit toujours être utilisé, en effet s'il n'est pas spécifié, le comportement de la fonction n'est pas garanti et peut varier d'une plate-forme à une autre.
+        if (valeur <0) {
+            this.value = 0;
+        }
+        if (valeur >100) {
+             this.value = 100;
+        }
+    });
+
+    // Inject dans aside titre / la description complete et modifie le buy button avec le nom du produit
     aside.textContent = `Description de l'oeuvre : ${product.titre}`;
     asidedescription.textContent = product.description;
     button.textContent = `Buy ${product.shorttitle}`;

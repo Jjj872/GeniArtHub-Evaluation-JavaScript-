@@ -29,7 +29,7 @@
                     <p>35.25€</p>
                     <div>
                         <label for="quantity">Quantité:</label>
-                        <input type="number" id="quantity" name="quantity" min="0" max="10" />
+                        <input value="1" type="number" id="quantity" name="quantity" min="0" max="10" />
                     </div>
                     <button>Supprimer</button> <!-- maybe <a> ,easiest in js ? -->
                 </div>
@@ -43,7 +43,7 @@
                     <p>35.25€</p>
                     <div>
                         <label for="quantity">Quantité:</label>
-                        <input type="number" id="quantity" name="quantity" min="0" max="10" />
+                        <input value="1" type="number" id="quantity" name="quantity" min="0" max="10" />
                     </div>
                     <button>Supprimer</button> <!-- maybe <a> ,easiest in js ? -->
                 </div>
@@ -57,11 +57,12 @@
                     <p>35.25€</p>
                     <div>
                         <label for="quantity">Quantité:</label>
-                        <input type="number" id="quantity" name="quantity" min="0" max="10" />
+                        <input value="1" type="number" id="quantity" name="quantity" min="0" max="10" />
                     </div>
                     <button>Supprimer</button> <!-- maybe <a> ,easiest in js ? -->
                 </div>
             </div>
+            
         </div>
         <div class="cart-main-total">
             <h3>Total de la commande</h3>
@@ -91,23 +92,23 @@
                 <div class="cart-form-input">
                     <div class="cart-form-input-list">
                         <label for="prenom">Prénom :</label>
-                        <input id="form_prenom_input" type="text" name="prenom" placeholder="prénom" required>
+                        <input minlength="2" id="form_prenom_input" type="text" name="prenom" placeholder="prénom" required>
                     </div>
                     <div class="cart-form-input-list">
                         <label for="nom">Nom :</label>
-                        <input id="form_nom_input" type="text" name="nom" placeholder="nom" required>
+                        <input minlength="2" id="form_nom_input" type="text" name="nom" placeholder="nom" required>
                     </div>
                     <div class="cart-form-input-list">
                         <label for="adresse">Adresse :</label>
-                        <input id="form_adresse_input" type="text" name="adresse" placeholder="adresse" required>
+                        <input minlength="10" id="form_adresse_input" type="text" name="adresse" placeholder="adresse" required>
                     </div>
                     <div class="cart-form-input-list">
                         <label for="ville">Ville :</label>
-                        <input id="form_ville_input" type="text" name="ville" placeholder="ville" required>
+                        <input minlength="3" id="form_ville_input" type="text" name="ville" placeholder="ville" required>
                     </div>
                     <div class="cart-form-input-list">
                         <label for="email">Email :</label>
-                        <input id="form_email_input" type="email" name="Email" placeholder="email" required>
+                        <input minlength="2" id="form_email_input" type="email" name="Email" placeholder="email" required>
                     </div>
                     
                 </div>

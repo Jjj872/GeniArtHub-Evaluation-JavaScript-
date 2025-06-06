@@ -26,7 +26,7 @@ async function displayProducts() {
         const product = products[index]; 
 
         const img = card.querySelector('.product-image');  // Sélectionne l'image dans la carte
-        const button = card.querySelector('.buy-button');  // Sélectionne le lien dans la carte
+        const button = card.querySelector('.buy-button');  // Sélectionne le boutton dans la carte
 
         // Met à jour l'image
         img.src = product.image;

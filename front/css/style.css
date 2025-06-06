@@ -282,6 +282,9 @@ article > div > div.price > p {
 .cart {
     margin: 0;
     padding: 0;
+    p {
+        font-family: 'SOURCE SANS 3';
+    }
 }
 
 
@@ -366,6 +369,7 @@ article > div > div.price > p {
     }
     input {
         font-size: 22px;
+        text-align: center;
     }
 }
 
