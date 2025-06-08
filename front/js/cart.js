@@ -1,3 +1,68 @@
+// CODE POUR LE PANIER ->
+const storedCartData = localStorage.getItem('cart'); // recup les produit dans le panier du localstorage
+const produits = document.getElementsByClassName("produit");
+
+
+// Supprime le produit listé en face du boutton supprimer dans le panier  
+for (let produit of produits) {
+    const buttonDelete = produit.querySelector(".delete_product");
+
+    buttonDelete.addEventListener('click', () => {
+        produit.remove(); 
+    });
+}
+
+// PLAN ->
+// Prendre les infos dans localstorage "cart"
+// Parse pour séparer les éléments ? 
+// pour chaque produit dans "cart", crée un template avec les infos du produit
+// Injecte dans le html les differents produit avec le template
+  // SI addeventlistener "change" sur l'input quantity ça doit update le localstorage ce MàJ
+  
+  // Delete Button déja crée et fonctionnel ()
+  
+var val = JSON.parse(storedCartData); // Local storage -> tableau[]
+// console.log(val) // Affiche dans la console le localstorage sous forme d'array
+
+async function displayProducts() {
+
+  val.forEach((card, index) => {   // index sert à recup le produit correspondant dans le tableau storedCartData[].
+  const product = val[index]; 
+  console.log(product) // Affiche dans la console chaque produits dans le panier, une ligne = 1 produit 
+  }
+
+)};
+
+displayProducts()
+
+
+
+const template = `    <div class="produit">
+                        <img src="${this.img}" alt="Oiseau regard en l'air">
+                        <div>
+                            <h3 class="produit_h3">${this.shorttitle}</h3>
+                            <p class="produit_format">${this.format}</p>
+                            <p class="produit_prix">${this.prix}</p>
+                            <div>
+                                <label for="quantity">Quantité:</label>
+                                <input value="${this.quantity}" type="number" id="quantity" name="quantity" min="0" max="10" />
+                            </div>
+                            <button class="delete_product">Supprimer</button>
+                          </div>
+                      </div> `
+
+  
+
+
+
+
+
+
+
+
+
+
+// CODE POUR LE FORMULAIRE -> 
 // /!\ ATTENTION – Chaque action effectuée (modification des quantités, suppression de produit, validation du formulaire) doit pouvoir fonctionner sans rechargement de la page.
 
 // Récupération de la modal | OUTSIDE FUNCTION
@@ -35,8 +100,6 @@ btn.onclick = function(event) {
     return value.length >= 3 && value.length <= 100;
   }
 
-
-
   // Vérification globale
   if (!validateValueNomPrenom(prenomVal)) {
     alert('Veuillez renseigner le champ "Prénom" avec minimum 2 caractères');
@@ -62,8 +125,7 @@ btn.onclick = function(event) {
   modal.style.display = "block";  
 }
 
-
-// When the user clicks anywhere outside of the modal, close it
+// Quand l'utilisateur clique en dehors de la modal, la ferme 
 window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";

@@ -10,15 +10,10 @@ async function getProduct() {
     }
 }
 
-// Fonction pour injecter les données dans les <article class="product-card">
+// Fonction asynchrone pour injecter les données dans les <article class="product-card">
 async function displayProducts() {
     const products = await getProduct(); // Récupère les données de l'API
     // console.log (products) // Affiche liste des produits
-
-    if (!products) {
-        console.log("Aucun produit trouvé !");
-        return;
-    }
 
     const cards = document.querySelectorAll('.product-card'); // Sélectionne tous les <article>
 

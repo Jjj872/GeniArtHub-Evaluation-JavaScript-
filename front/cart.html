@@ -21,8 +21,23 @@
             <h1>Votre panier</h1>
         </div>
         <div class="produit-liste">
+                                                        <!-- TEMPLATE -->
+                <div class="produit">
+                    <img class="produit_img" src="img/01.png" alt="Oiseau regard en l'air">
+                    <div>
+                        <h3 class="produit_h3">Eclat Ethere : Bird</h3>
+                        <p class="produit_format">Format 40x30</p>
+                        <p class="produit_prix">35.25€</p>
+                        <div>
+                            <label for="quantity">Quantité:</label>
+                            <input value="1" type="number" id="quantity" name="quantity" min="0" max="10" />
+                        </div>
+                        <button class="delete_product">Supprimer</button> <!-- maybe <a> ,easiest in js ? -->
+                    </div>
+                </div>
+
             <div class="produit">
-                <img src="img/01.png" alt="Oiseau regard en l'air">
+                <img class="produit_img" src="img/01.png" alt="Oiseau regard en l'air">
                 <div>
                     <h3>Eclat Ethere : Bird</h3>
                     <p>Format 40x30</p>
@@ -31,12 +46,12 @@
                         <label for="quantity">Quantité:</label>
                         <input value="1" type="number" id="quantity" name="quantity" min="0" max="10" />
                     </div>
-                    <button>Supprimer</button> <!-- maybe <a> ,easiest in js ? -->
+                    <button class="delete_product">Supprimer</button> <!-- maybe <a> ,easiest in js ? -->
                 </div>
             </div>
 
             <div class="produit">
-                <img src="img/01.png" alt="Oiseau regard en l'air">
+                <img class="produit_img" src="img/01.png" alt="Oiseau regard en l'air">
                 <div>
                     <h3>Eclat Ethere : Bird</h3>
                     <p>Format 40x30</p>
@@ -45,21 +60,7 @@
                         <label for="quantity">Quantité:</label>
                         <input value="1" type="number" id="quantity" name="quantity" min="0" max="10" />
                     </div>
-                    <button>Supprimer</button> <!-- maybe <a> ,easiest in js ? -->
-                </div>
-            </div>
-
-            <div class="produit">
-                <img src="img/01.png" alt="Oiseau regard en l'air">
-                <div>
-                    <h3>Eclat Ethere : Bird</h3>
-                    <p>Format 40x30</p>
-                    <p>35.25€</p>
-                    <div>
-                        <label for="quantity">Quantité:</label>
-                        <input value="1" type="number" id="quantity" name="quantity" min="0" max="10" />
-                    </div>
-                    <button>Supprimer</button> <!-- maybe <a> ,easiest in js ? -->
+                    <button class="delete_product">Supprimer</button> <!-- maybe <a> ,easiest in js ? -->
                 </div>
             </div>
             
