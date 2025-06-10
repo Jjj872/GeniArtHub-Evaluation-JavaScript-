@@ -6,7 +6,7 @@ async function getProduct() {
         // console.log("Produits reçus :", data); 
         return data;
     } catch (e) {
-        console.error("Erreur lors de la récupération des produits :", e);
+        console.log("Erreur lors de la récupération des produits :", e);
     }
 }
 

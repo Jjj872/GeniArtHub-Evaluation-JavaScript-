@@ -39,28 +39,28 @@ async function displayProductDetail() {
     // console.log(product); // pour VERIF que toutes les infos (id,img,descrip. . .) arrive bien
 
 
-    
+        // Injection des données
+    img.src = product.image;     
+    img.alt = product.shorttitle;
+    title.textContent = product.titre;
+    description.textContent = truncatedText;
+    pagename.textContent = product.titre;
+
     
     // Fonction pour raccourcir la description 
     function TruncatedDescription(str, maxLength) {
     if (str.length > maxLength) {
-        return str.substring(0, maxLength) + '...';
+        return str.substring(0, maxLength) + '...'; // substring(indexStart, indexEnd)
     }
     return str; // si str < maxlength affiche tout le text (logique)
     }
-
     const longText = product.description;
     const truncatedText = TruncatedDescription(longText, 200); // truncatedText est la variable longtext qui passe dans la fonction truncateddescription avec 200 en max length
     // console.log(truncatedText); // Affiche dans la console la description tronquée
 
 
 
-    // Injection des données
-    img.src = product.image;     
-    img.alt = product.shorttitle;
-    title.textContent = product.titre;
-    description.textContent = truncatedText;
-    pagename.textContent = product.titre;
+
 
 
 
@@ -70,7 +70,7 @@ async function displayProductDetail() {
     // Affiche le prix par rapport au format selectionner par l'utilisateur
     select.addEventListener("change", function () {
     const selectedTaille = this.value;
-    const selectedDeclinaison = product.declinaisons.find(declinaison => declinaison.taille === selectedTaille); // à modif
+    const selectedDeclinaison = product.declinaisons.find(declinaison => declinaison.taille === selectedTaille); // "Je cherche dans la liste des déclinaisons celle dont la taille est exactement égale à la taille choisie par l’utilisateur."
 
     if (selectedDeclinaison) {
         price.textContent = `${selectedDeclinaison.prix}€`;
@@ -121,14 +121,8 @@ async function displayProductDetail() {
 });
 
 }
-
-
-
 // Lancement
 displayProductDetail();
-
-
-
 
 
 

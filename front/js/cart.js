@@ -1,6 +1,8 @@
-// CODE POUR LE PANIER ->
 const storedCartData = localStorage.getItem('cart'); // recup les produit dans le panier du localstorage
 const produits = document.getElementsByClassName("produit");
+var val = JSON.parse(storedCartData); // Local storage -> tableau[]
+// console.log(val) // Affiche dans la console le localstorage sous forme d'array
+  
 
 
 // Supprime le produit listé en face du boutton supprimer dans le panier  
@@ -12,19 +14,9 @@ for (let produit of produits) {
     });
 }
 
-// PLAN ->
-// Prendre les infos dans localstorage "cart"
-// Parse pour séparer les éléments ? 
-// pour chaque produit dans "cart", crée un template avec les infos du produit
-// Injecte dans le html les differents produit avec le template
-  // SI addeventlistener "change" sur l'input quantity ça doit update le localstorage ce MàJ
-  
-  // Delete Button déja crée et fonctionnel ()
-  
-var val = JSON.parse(storedCartData); // Local storage -> tableau[]
-// console.log(val) // Affiche dans la console le localstorage sous forme d'array
 
-async function displayProducts() {
+
+async function displayProducts() { // NON FONCTIONNEL
 
   val.forEach((card, index) => {   // index sert à recup le produit correspondant dans le tableau storedCartData[].
   const product = val[index]; 
@@ -51,6 +43,16 @@ const template = `    <div class="produit">
                           </div>
                       </div> `
 
+
+
+// PLAN ->
+// Prendre les infos dans localstorage "cart"
+// Parse pour séparer les éléments ? 
+// pour chaque produit dans "cart", crée un template avec les infos du produit
+// Injecte dans le html les differents produit avec le template
+  // SI addeventlistener "change" sur l'input quantity ça doit update le localstorage ce MàJ
+  
+  // Delete Button déja crée et fonctionnel ()
   
 
 
@@ -58,11 +60,12 @@ const template = `    <div class="produit">
 
 
 
+// CODE POUR LE FORMULAIRE ->
 
 
 
 
-// CODE POUR LE FORMULAIRE -> 
+ 
 // /!\ ATTENTION – Chaque action effectuée (modification des quantités, suppression de produit, validation du formulaire) doit pouvoir fonctionner sans rechargement de la page.
 
 // Récupération de la modal | OUTSIDE FUNCTION
@@ -89,15 +92,15 @@ btn.onclick = function(event) {
 
   // Fonctions de validation
   function validateValueNomPrenom(value) {
-    return value.length >= 2 && value.length <= 100;
+    return value.length >= 2 ;
   }
 
   function validateValueAdresse(value) {
-    return value.length >= 10 && value.length <= 100;
+    return value.length >= 10 ;
   }
 
   function validateValueVille(value) {
-    return value.length >= 3 && value.length <= 100;
+    return value.length >= 3 ;
   }
 
   // Vérification globale
